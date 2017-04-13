@@ -209,16 +209,19 @@ Write a function that will capitalize the first letter in each word in the phras
 var myWay = "i've lived a life that's full, i've traveled each and every highway. but more, much more than this. i did it my way.";
 
 function capThis(str){
-  var word= str.split(" ");
+  var word = str.split(" ");
+  console.log("FIRST: ", word);
   for(var i = 0; i<word.length; i++){
     var letter = word[i].split("");
+    console.log("SECOND: ", letter);
     letter[0] = letter[0].toUpperCase();
-    word[i] = letter.join('');
+    word[i] = letter.join("");
 
   }
 return word.join(" ");
 }
 console.log(capThis(myWay));
+
 /* 14) Back to School
 Declare a variable named `currentCohort` and set it's value to be this [array found here](https://gist.github.com/sgnl/e40879b2249e06ca7811).
 Write a function named `graduateAndSetNewClass`, which takes a single argument called `cohort`.
@@ -268,3 +271,15 @@ currentCohort = [
   }
 ];
 
+function graduateAndSetNewClass(cohort){
+  for(var i = 0; i<cohort.length; i++){
+    if(cohort[i].enrolled === true){
+      cohort[i].graduated = true;
+    }else if(cohort[i].enrolled === false){
+      cohort[i].enrolled = true;
+    }
+  }
+  return cohort;
+}
+
+console.log(graduateAndSetNewClass(currentCohort));
